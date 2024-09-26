@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text } from "react-native";
 import { RadioButton, Button } from "react-native-paper";
 import { styles } from "../styles/globalStyles";
@@ -12,7 +12,7 @@ const Question = ({
 }) => {
 	const [answer, setAnswer] = useState<string>("");
 
-	// Reset the answer
+
 	useEffect(() => {
 		if (resetAnswer) {
 			setAnswer("");
@@ -36,7 +36,6 @@ const Question = ({
 				<RadioButton.Group
 					onValueChange={(value) => {
 						setAnswer(value);
-                        console.log("Answer selected:", answer);
 					}}
 					value={answer}
 				>
@@ -60,7 +59,11 @@ const Question = ({
 			</View>
 
 			<View style={styles.submitContainer}>
-				<Button mode="contained" onPress={() => handleSubmit(answer)} style={styles.button}>
+				<Button
+					mode="contained"
+					onPress={() => handleSubmit(answer)}
+					style={styles.button}
+				>
 					Submit
 				</Button>
 			</View>

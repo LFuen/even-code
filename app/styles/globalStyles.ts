@@ -48,16 +48,6 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         justifyContent: "center",
     },
-    input: {
-        flexDirection: "row",
-        justifyContent: "space-around",
-        marginVertical: 20,
-    },
-    feedbackText: {
-        fontSize: 24,
-        
-        fontWeight: 'bold',
-    },
     radioGroupContainer: {
         flexDirection: "column",
         alignSelf: "stretch",
@@ -65,10 +55,6 @@ export const styles = StyleSheet.create({
         marginTop: 20,
     },
     radioContainer: {
-        flexDirection: "row",
-        justifyContent: "flex-start",
-    },
-    radioButton: {
         flexDirection: "row",
         justifyContent: "flex-start",
     },
@@ -87,7 +73,6 @@ export const styles = StyleSheet.create({
         alignSelf: "center",
     },
     badgeContainer: {
-        position: "absolute",
         bottom: 60,
         alignItems: "center",
         justifyContent: "center",
@@ -111,16 +96,40 @@ export const styles = StyleSheet.create({
     dismissButton: {
         backgroundColor: "#3396ff",
         alignSelf: "center",
+    },    
+    feedbackText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        padding: 20,
+        borderRadius: 20,
+        marginBottom: 30,
+        backgroundColor: "white",
+        textAlign: "center",
+        color: "black",
+    },
+    hintText: {
+        fontSize: 16,
+        color: '#666',
+        fontStyle: 'italic',
+        marginBottom: 20,
+        textAlign: 'center',
     },
     tryAgain: {
+        bottom: 20,
+        marginHorizontal: 20,
+        justifyContent: "center",
+        zIndex: 100,
+        backgroundColor: "white",
+        padding: 20,
+        borderRadius: 20,
         flexDirection: "column",
         alignItems: "center",
-        backgroundColor: "black",
-        color: "white",
+        color: "white",        
     },
     retryButton: {
         backgroundColor: "#3396ff",
         alignSelf: "center",
+        color: "white",
     },
     modalContainer: {
         flexDirection: "column",

@@ -9,26 +9,36 @@ import ConfettiCannon from "react-native-confetti-cannon";
 const App = () => {
 	const [showFeedback, setShowFeedback] = useState<boolean>(false);
     const [isCorrect, setIsCorrect] = useState<boolean>(false);
-	const [answer, setAnswer] = useState<string>(""); // Track answer
+	const [answer, setAnswer] = useState<string>("");
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	const confettiRef = useRef<any>(null); // confetti control
-	const slideIn = useRef(new Animated.Value(0)).current; // Slide-in for badge
-	const scaleAnim = useRef(new Animated.Value(0)).current; // Pop-up for badge
+	const confettiRef = useRef<any>(null);
+	const slideIn = useRef(new Animated.Value(0)).current;
+	const scaleAnim = useRef(new Animated.Value(0)).current;
 	const correctAnswer = "11";
 
-	// Handle answer submission
+    const phrases = [
+        "Don't give up, you can get it!",
+        "Great effort! Give it another shot.",
+        "Keep pushing, you can do it!",
+        "Nice try! Try again.",
+    ];
+
+    const [randomPhrase, setRandomPhrase] = useState<string>("");
+
 	const handleAnswerSubmit = (submittedAnswer: string) => {
+
 		setAnswer(submittedAnswer);
 		if (submittedAnswer === correctAnswer) {
             setIsCorrect(true);
 			setShowFeedback(true);
-			animateBadge(); // Trigger badge when correct
-			confettiRef.current?.start(); // Trigger confetti
+			animateBadge();
+			confettiRef.current?.start();
 
-		} else {
+
+		} else {        
             setIsCorrect(false);
 			setShowFeedback(true);
-            console.log("The answer is:", answer);
+            setRandomPhrase(phrases[Math.floor(Math.random() * phrases.length)]);
 		}
 	};
 
@@ -47,6 +57,8 @@ const App = () => {
 			}),
 		]).start();
 	};
+
+
 
 	// Reset state
 	const handleDismiss = () => {
@@ -72,6 +84,7 @@ const App = () => {
 						onDismiss={handleDismiss}
 						slideIn={slideIn}
 						scaleAnim={scaleAnim}
+                        randomPhrase={randomPhrase}
 					/>
 				</Portal>
 
